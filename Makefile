@@ -1,5 +1,5 @@
 GCC = g++
-CFLAGS =
+CFLAGS = -I include/
 LDFLAGS = 
 
 PROGRAM = test

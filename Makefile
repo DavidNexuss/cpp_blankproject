@@ -35,6 +35,13 @@ $(ODIR)/%.o : $(IDIR)/%.cpp
 $(SDIR)/%.s : $(IDIR)/%.cpp
 	$(GCC) -g -o $@ $(CFLAGS) -S $^
 
+$(ODIR)/%.o : $(IDIR)/**/%.cpp
+	$(GCC) $(CFLAGS) -c $^ -o $@
+
+$(SDIR)/%.s : $(IDIR)/**/%.cpp
+	$(GCC) -g -o $@ $(CFLAGS) -S $^
+
+
 $(OUT): $(OBJECTS)
 	$(GCC) $(LDFLAGS) -o $(BIN)/$(PROGRAM) $(OBJECTS)
 
